@@ -38,6 +38,9 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Install the calico networking plugin
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+(Optional) If you want to be able to schedule Pods on the control-plane node
+kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
 ## Installation on worker node
@@ -53,3 +56,4 @@ Kubernetes cluster setup is done. To test the cluster working properly, we can r
 ```
 kubectl get nodes
 ```
+
